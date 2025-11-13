@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    background-image: url('../imagenes/fondo2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Agregado para que el fondo no se mueva al hacer scroll */
+
+    min-height: 100vh; /* Ajustado para que crezca si hay más contenido */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.45); /* <-- aquí oscureces el fondo */
+    pointer-events: none;
+    z-index: -1;
+}

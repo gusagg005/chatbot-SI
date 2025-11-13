@@ -1,0 +1,192 @@
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.container {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.014);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.781);
+}
+
+/* ===== SECCIÓN DE INFORMACIÓN ===== */
+.info {
+  flex: 1;
+  padding: 20px;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.705);
+}
+
+.info .credits {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #dcdcdc;
+  font-style: italic;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* ========================================================== */
+/* ===== CHAT BOX CON ESTILO NFL ===== */
+/* ========================================================== */
+
+.chat-box {
+  width: 380px;
+  height: 500px;
+  background: rgba(15, 23, 42, 0.7);
+  border-radius: 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: fadeIn 0.8s ease;
+  position: relative;
+}
+
+/* ===== EFECTO DE MARCA DE AGUA NFL ===== */
+.chat-box::after {
+  content: "";
+  position: absolute;
+  background-image: url('../imagenes/nfl.png'); 
+  background-size: 120px;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.08; /* transparente */
+  inset: 0;
+  z-index: 0;
+}
+
+/* ===== CABECERA DEL CHAT ===== */
+.chat-box::before {
+  content: "";
+  display: block;
+  background: linear-gradient(90deg, #013369, #d50a0a);
+  padding: 14px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
+  position: relative;
+}
+
+.chat-box::before::after {
+  content: "🏈 NFL BOT 🤖";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 1rem;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+/* ===== LÍNEA INFERIOR DECORATIVA ===== */
+.chat-box {
+  border-bottom: 4px solid;
+  border-image: linear-gradient(90deg, #013369, #d50a0a) 1;
+}
+
+/* ===== ÁREA DE MENSAJES ===== */
+.messages {
+  flex: 1;
+  padding: 18px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  scroll-behavior: smooth;
+  z-index: 1;
+}
+
+/* ===== BURBUJAS DEL USUARIO ===== */
+.message.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 18px 18px 0 18px;
+  max-width: 80%;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+  animation: slideUp 0.3s ease;
+  z-index: 1;
+}
+
+/* ===== BURBUJAS DEL BOT ===== */
+.message.bot {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.2);
+  color: #e2e8f0;
+  padding: 10px 14px;
+  border-radius: 18px 18px 18px 0;
+  max-width: 80%;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  animation: slideUp 0.3s ease;
+  z-index: 1;
+}
+
+/* ===== ÁREA DE INPUT ===== */
+.input-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1;
+}
+
+.input-area input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 14px;
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-area input:focus {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.input-area input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ===== BOTÓN DE ENVIAR ===== */
+.input-area button {
+  background: linear-gradient(135deg, #013369, #d50a0a);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s ease, background 0.3s;
+}
+
+.input-area button:hover {
+  transform: scale(1.08);
+  background: linear-gradient(135deg, #0f2e59, #b50909);
+}
+
+/* ===== ANIMACIONES ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
