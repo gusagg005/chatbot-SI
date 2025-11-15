@@ -15,7 +15,6 @@ function addMessage(text, sender) {
   const msg = document.createElement('div');
   msg.classList.add('message', sender);
 
-  // 🔹 si el mensaje es del bot, interpretamos el formato
   if (sender === 'bot') {
     msg.innerHTML = markdownToHTML(text);
   } else {
@@ -64,4 +63,9 @@ input.addEventListener('keypress', (event) => {
     event.preventDefault();
     sendMessage();
   }
+});
+
+// 🔹 Mensaje inicial del bot cuando carga la página
+document.addEventListener("DOMContentLoaded", () => {
+  addMessage("¡Hola! Soy tu asistente. 🤖.<br>Estoy listo para ayudarte con todo sobre la NFL 🏈. ¿Qué te gustaría saber?", "bot");
 });
