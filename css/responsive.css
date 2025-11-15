@@ -1,139 +1,54 @@
-/* ================================
-   📱 RESPONSIVE (MÓVILES & TABLETS)
-================================ */
+/* ===================== */
+/*   RESPONSIVE MOBILE   */
+/* ===================== */
+
 @media (max-width: 768px) {
 
- /* ===== CONTENEDOR COMO BARRA SUPERIOR ===== */
-.container {
-  width: 100%;
-  padding: 12px 18px;
-  
-  background: rgba(15, 25, 45, 0.70); /* fondo con blur elegante */
-  backdrop-filter: blur(12px);
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 0 0 18px 18px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-
-  /* 🔹 SOLO ocupa lo necesario */
-  height: auto;
-  margin-bottom: 18px; /* separa el chat */
-}
-
-
-  /* ===== SECCIÓN DE INFORMACIÓN ===== */
- .info {
-  width: 100%;
-  max-width: 600px;
-  text-align: center;
-
-  background: transparent; /* se vuelve parte del header */
-  padding: 0;
-  box-shadow: none;
-  border-radius: 0;
-  margin: 0;
-}
-
-
-  /* ===== CHAT ===== */
+  /* El contenedor del chat ocupa casi toda la pantalla */
   .chat-box {
     width: 95%;
-    max-width: 650px;
-    height: 68vh;
-    min-height: 430px;
-    display: flex;
-    flex-direction: column;
-    background: rgba(10, 15, 35, 0.8);
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    height: 85vh;
+    padding: 10px;
   }
 
-  /* ===== MENSAJES ===== */
+  /* El área de mensajes más compacta */
   .messages {
-    flex: 1;
-    overflow-y: auto;
-    padding: 14px 16px 80px; /* deja más espacio para evitar que se tape */
-    scroll-behavior: smooth;
+    height: 70vh;
+    padding: 8px;
+    font-size: 0.9rem;
   }
 
-  /* ===== INPUT ÁREA FIJA ===== */
+  /* Espacio del input */
   .input-area {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    max-width: 680px;
-    padding: 12px 14px calc(env(safe-area-inset-bottom) + 10px);
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.10);
-    backdrop-filter: blur(14px);
-    border-top: 1px solid rgba(255, 255, 255, 0.20);
-    z-index: 20;
+    flex-direction: column;
+    gap: 8px;
   }
 
+  /* Input más ancho */
   .input-area input {
-    flex: 1;
-    padding: 12px 14px;
-    border-radius: 20px;
-    border: none;
+    width: 100%;
     font-size: 1rem;
-    background: rgba(255, 255, 255, 0.18);
-    color: #fff;
+    padding: 10px;
   }
 
-  .input-area input::placeholder {
-    color: rgba(255, 255, 255, 0.55);
-  }
-
+  /* Botón más accesible */
   .input-area button {
-    padding: 10px 18px;
-    background: linear-gradient(135deg, #d50a0a, #9b0a0a);
-    border-radius: 20px;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    transition: 0.25s ease;
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px;
   }
 
-  .input-area button:hover {
-    transform: scale(1.04);
-  }
-
-  /* ===== BURBUJAS ===== */
+  /* Tamaño de los mensajes */
   .message {
-    max-width: 90%;
-    word-wrap: break-word;
-    font-size: 0.96rem;
-    line-height: 1.45;
+    font-size: 0.9rem;
+    padding: 10px;
   }
 
-  /* ===== Altura moderna ===== */
-  @supports (height: 100dvh) {
-    .chat-box {
-      height: calc(100dvh - 240px);
-    }
-  }
-}
-
-/* ================================
-   📱 EXTRA: CELULARES MUY PEQUEÑOS
-================================ */
-@media (max-width: 480px) {
-  .chat-box {
-    height: 63vh;
+  .message.user {
+    margin-left: 20px;
   }
 
-  .message {
-    font-size: 0.92rem;
+  .message.bot {
+    margin-right: 20px;
   }
 }
